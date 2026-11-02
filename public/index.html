@@ -1,647 +1,194 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ShopFlash — Java E-Commerce System</title>
-  <meta name="description" content="A full-featured Java E-Commerce System using JDBC and MySQL. Supports user/seller registration, shopping cart, product management, and order placement."/>
+  <title>ShopFlash &mdash; Java E-Commerce System</title>
+  <meta name="description" content="A full-featured Java E-Commerce System using JDBC and MySQL."/>
+  <meta property="og:title" content="ShopFlash &mdash; Java E-Commerce System"/>
+  <meta property="og:url" content="https://shopflash-ecommerce.onrender.com"/>
+  <meta name="theme-color" content="#6358f0"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#"><div class="brand-logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.97-1.67l1.38-7.33H6"/></svg></div><span>ShopFlash</span></a>
+    <nav class="nav-links">
+      <a href="#demo" class="nav-link">Live Demo</a>
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#products" class="nav-link">Products</a>
+      <a href="#schema" class="nav-link">Database</a>
+      <a href="https://github.com/lok1-10/shopflash-ecommerce" target="_blank" rel="noopener" class="nav-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- Animated background orbs -->
-  <div class="bg-orb orb-1"></div>
-  <div class="bg-orb orb-2"></div>
-  <div class="bg-orb orb-3"></div>
-
-  <!-- ====== NAVBAR ====== -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-inner">
-      <div class="nav-brand">
-        <div class="brand-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-            <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.8"/>
-            <path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge"><span class="badge-dot"></span> Java &bull; MySQL &bull; JDBC</div>
+    <h1 class="hero-title">E-Commerce<br/><span class="accent">Powered by Java</span></h1>
+    <p class="hero-desc">A complete console-based e-commerce system with user &amp; seller accounts, product catalog, shopping cart, and order management. All connected to MySQL via JDBC.</p>
+    <div class="hero-btns">
+      <a href="#demo" class="btn btn-primary">Try Live Demo</a>
+      <a href="#features" class="btn btn-outline">Explore Features</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><strong>431</strong><span>Lines of Code</span></div>
+      <div class="hstat"><strong>4</strong><span>DB Tables</span></div>
+      <div class="hstat"><strong>2</strong><span>User Roles</span></div>
+      <div class="hstat"><strong>100%</strong><span>Pure Java</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="phone-shell">
+      <div class="phone-screen">
+        <div class="app-bar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.97-1.67l1.38-7.33H6"/></svg> ShopFlash</div>
+        <div class="app-search"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Search products...</div>
+        <div class="app-products">
+          <div class="app-product"><div class="app-prod-img" style="background:linear-gradient(135deg,#ecebff,#d9d6fb)">&#x1F4F1;</div><div class="app-prod-name">Phone</div><div class="app-prod-price">&#x20B9;12,999</div></div>
+          <div class="app-product"><div class="app-prod-img" style="background:linear-gradient(135deg,#dce9fe,#bfcffd)">&#x1F4BB;</div><div class="app-prod-name">Laptop</div><div class="app-prod-price">&#x20B9;54,999</div></div>
+          <div class="app-product"><div class="app-prod-img" style="background:linear-gradient(135deg,#d7f5e9,#a8e8cf)">&#x1F45F;</div><div class="app-prod-name">Shoes</div><div class="app-prod-price">&#x20B9;2,499</div></div>
+          <div class="app-product"><div class="app-prod-img" style="background:linear-gradient(135deg,#fde3cb,#fbbf7a)">&#x1F3A7;</div><div class="app-prod-name">Earbuds</div><div class="app-prod-price">&#x20B9;1,799</div></div>
         </div>
-        <span class="brand-name">ShopFlash</span>
-      </div>
-      <div class="nav-links">
-        <a href="#features" class="nav-link">Features</a>
-        <a href="#architecture" class="nav-link">Architecture</a>
-        <a href="#code" class="nav-link">Code</a>
-        <a href="#schema" class="nav-link">Database</a>
-        <a href="https://github.com" target="_blank" class="nav-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-          </svg>
-          GitHub
-        </a>
+        <div class="app-cart-bar"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.97-1.67l1.38-7.33H6"/></svg> Cart (2) &mdash; &#x20B9;14,798</div>
       </div>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <!-- ====== HERO ====== -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        Java + MySQL &middot; JDBC &middot; Open Source
+<section class="section" id="demo">
+  <div class="container">
+    <div class="section-tag">Interactive Demo</div>
+    <h2 class="section-title">Try the System Live</h2>
+    <p class="section-sub">Click the buttons below to simulate the real Java console experience.</p>
+    <div class="demo-shell">
+      <div class="shell-bar">
+        <div class="shell-dots"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span></div>
+        <span class="shell-title">EcommerceSystem.java &mdash; Running</span>
+        <button class="shell-reset" id="resetBtn">&#x21BA; Reset</button>
       </div>
-      <h1 class="hero-title">
-        Full-Stack<br/>
-        <span class="gradient-text">E-Commerce</span><br/>
-        in Java
-      </h1>
-      <p class="hero-subtitle">
-        A console-based e-commerce platform built with Java and MySQL. Supports user/seller accounts, 
-        product listings, shopping carts, and order fulfillment — all connected via JDBC.
-      </p>
-      <div class="hero-actions">
-        <a href="#code" class="btn btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-          </svg>
-          View Code
-        </a>
-        <a href="#features" class="btn btn-ghost">
-          Explore Features
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-          </svg>
-        </a>
+      <div class="shell-output" id="shellOutput">
+        <div class="shell-line sh-dim">$ java -cp .;mysql-connector-j.jar DBMS.EcommerceSystem</div>
+        <div class="shell-line sh-dim">Connecting to ecommerce1@localhost:3306...</div>
+        <div class="shell-line">&nbsp;</div>
+        <div class="shell-line sh-box">&#x2554;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2557;</div>
+        <div class="shell-line sh-title">&#x2551;        &#x1F6D2; E-COMMERCE SYSTEM         &#x2551;</div>
+        <div class="shell-line sh-box">&#x2560;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2563;</div>
+        <div class="shell-line sh-opt">&#x2551; 1. &#x1F464; User Login                    &#x2551;</div>
+        <div class="shell-line sh-opt">&#x2551; 2. &#x1F3EA; Seller Login                  &#x2551;</div>
+        <div class="shell-line sh-opt">&#x2551; 3. &#x1F4DD; Register User                 &#x2551;</div>
+        <div class="shell-line sh-opt">&#x2551; 4. &#x1F3EC; Register Seller               &#x2551;</div>
+        <div class="shell-line sh-opt">&#x2551; 5. &#x274C; Exit                          &#x2551;</div>
+        <div class="shell-line sh-box">&#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;</div>
+        <div class="shell-line sh-prompt">&#x1F449; Enter choice: <span class="blink">&#x2588;</span></div>
       </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">431</span>
-          <span class="stat-label">Lines of Code</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">4</span>
-          <span class="stat-label">DB Tables</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">2</span>
-          <span class="stat-label">User Roles</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">100%</span>
-          <span class="stat-label">Java</span>
-        </div>
+      <div class="shell-buttons" id="shellButtons">
+        <button class="shell-btn" data-choice="1" id="btn1">1 &mdash; User Login</button>
+        <button class="shell-btn" data-choice="2" id="btn2">2 &mdash; Seller Login</button>
+        <button class="shell-btn" data-choice="3" id="btn3">3 &mdash; Register User</button>
+        <button class="shell-btn" data-choice="4" id="btn4">4 &mdash; Register Seller</button>
+        <button class="shell-btn shell-btn-exit" data-choice="5" id="btn5">5 &mdash; Exit</button>
       </div>
     </div>
-    <div class="hero-terminal">
-      <div class="terminal">
-        <div class="terminal-header">
-          <div class="t-dot t-red"></div>
-          <div class="t-dot t-yellow"></div>
-          <div class="t-dot t-green"></div>
-          <span class="t-title">EcommerceSystem.java</span>
-        </div>
-        <div class="terminal-body">
-          <div class="t-line"><span class="t-comment">// Main E-Commerce System</span></div>
-          <div class="t-line"><span class="t-keyword">&#x2554;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2557;</span></div>
-          <div class="t-line"><span class="t-string">&#x2551;        &#x1F6D2; E-COMMERCE SYSTEM         &#x2551;</span></div>
-          <div class="t-line"><span class="t-keyword">&#x2560;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2563;</span></div>
-          <div class="t-line"><span class="t-num">&#x2551; 1. &#x1F464; User Login                    &#x2551;</span></div>
-          <div class="t-line"><span class="t-num">&#x2551; 2. &#x1F3EA; Seller Login                  &#x2551;</span></div>
-          <div class="t-line"><span class="t-num">&#x2551; 3. &#x1F4DD; Register User                 &#x2551;</span></div>
-          <div class="t-line"><span class="t-num">&#x2551; 4. &#x1F3EC; Register Seller               &#x2551;</span></div>
-          <div class="t-line"><span class="t-num">&#x2551; 5. &#x274C; Exit                          &#x2551;</span></div>
-          <div class="t-line"><span class="t-keyword">&#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;</span></div>
-          <div class="t-line t-cursor">&#x1F449; Enter choice: <span class="cursor-blink">&#x2588;</span></div>
-        </div>
-      </div>
+  </div>
+</section>
+
+<section class="section section-light" id="features">
+  <div class="container">
+    <div class="section-tag">Features</div>
+    <h2 class="section-title">Everything built in Java</h2>
+    <p class="section-sub">Two core roles with a complete transactional workflow.</p>
+    <div class="features-grid">
+      <div class="feat-card"><div class="feat-icon" style="background:var(--color-accent-soft);color:var(--color-accent)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3>User Auth</h3><p>Email/password login with last-login timestamp tracking per session.</p><ul class="feat-list"><li>PreparedStatement queries</li><li>Last login timestamp</li><li>Role-based menus</li></ul></div>
+      <div class="feat-card"><div class="feat-icon" style="background:var(--color-blue-soft);color:var(--color-blue)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3>Seller Portal</h3><p>Sellers register shops and list products with categories, prices &amp; stock.</p><ul class="feat-list"><li>Shop by email registration</li><li>Add products with stock</li><li>View own listings</li></ul></div>
+      <div class="feat-card"><div class="feat-icon" style="background:var(--color-green-soft);color:var(--color-green)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.97-1.67l1.38-7.33H6"/></svg></div><h3>Shopping Cart</h3><p>Add products by ID with quantity and get a full cost breakdown.</p><ul class="feat-list"><li>Add by product ID + qty</li><li>JOIN-based display</li><li>Subtotal per item</li></ul></div>
+      <div class="feat-card"><div class="feat-icon" style="background:var(--color-orange-soft);color:var(--color-orange)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h5l3 4v3h-8V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><h3>Order Placement</h3><p>Real-time stock check. Stock auto-decremented. Cart cleared on success.</p><ul class="feat-list"><li>Stock validation</li><li>Auto stock decrement</li><li>Cart auto-clear</li></ul></div>
+      <div class="feat-card"><div class="feat-icon" style="background:var(--color-purple-soft);color:var(--color-purple)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><h3>MySQL + JDBC</h3><p>Full DB connectivity using mysql-connector-j with PreparedStatements throughout.</p><ul class="feat-list"><li>mysql-connector-j 26.10</li><li>PreparedStatement safety</li><li>Auto-increment PKs</li></ul></div>
+      <div class="feat-card"><div class="feat-icon" style="background:var(--color-yellow-soft);color:#b8860b"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><h3>Console UI</h3><p>Box-drawing menus, emoji prompts, and printf-formatted product tables.</p><ul class="feat-list"><li>ASCII box-drawing menus</li><li>printf table output</li><li>Emoji indicators</li></ul></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ====== FEATURES ====== -->
-  <section class="section" id="features">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-tag">Features</div>
-        <h2 class="section-title">Everything you need in one system</h2>
-        <p class="section-subtitle">Built around two core roles — Buyers and Sellers — with a full transactional flow.</p>
-      </div>
-      <div class="features-grid">
-
-        <div class="feature-card card-glow-purple">
-          <div class="feature-icon icon-purple">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
-            </svg>
-          </div>
-          <h3>User Authentication</h3>
-          <p>Secure login and registration for both buyers and sellers. Tracks last login timestamp on every session.</p>
-          <ul class="feature-list">
-            <li>Email + password login</li>
-            <li>PreparedStatement protection</li>
-            <li>Session-based last login tracking</li>
-          </ul>
-        </div>
-
-        <div class="feature-card card-glow-blue">
-          <div class="feature-icon icon-blue">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-            </svg>
-          </div>
-          <h3>Seller Portal</h3>
-          <p>Sellers can register their shop, list products with category/price/stock and manage their inventory.</p>
-          <ul class="feature-list">
-            <li>Shop registration via user email</li>
-            <li>Add products with stock tracking</li>
-            <li>View personal product listings</li>
-          </ul>
-        </div>
-
-        <div class="feature-card card-glow-teal">
-          <div class="feature-icon icon-teal">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-              <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.97-1.67l1.38-7.33H6"/>
-            </svg>
-          </div>
-          <h3>Shopping Cart</h3>
-          <p>Users browse products, add them to cart with specified quantities, and see a detailed cost breakdown.</p>
-          <ul class="feature-list">
-            <li>Add by product ID + quantity</li>
-            <li>Live subtotal calculation</li>
-            <li>Persistent cart per user</li>
-          </ul>
-        </div>
-
-        <div class="feature-card card-glow-orange">
-          <div class="feature-icon icon-orange">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <rect x="1" y="3" width="15" height="13" rx="1"/>
-              <path d="M16 8h5l3 4v3h-8V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
-            </svg>
-          </div>
-          <h3>Order Placement</h3>
-          <p>Place orders with real-time stock validation. Stock is decremented automatically upon successful order.</p>
-          <ul class="feature-list">
-            <li>Stock sufficiency check</li>
-            <li>Atomic order total calculation</li>
-            <li>Auto cart clear after order</li>
-          </ul>
-        </div>
-
-        <div class="feature-card card-glow-pink">
-          <div class="feature-icon icon-pink">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-            </svg>
-          </div>
-          <h3>MySQL Integration</h3>
-          <p>Full JDBC connectivity to MySQL via mysql-connector-j. All queries use PreparedStatements for safety.</p>
-          <ul class="feature-list">
-            <li>mysql-connector-j driver</li>
-            <li>PreparedStatement everywhere</li>
-            <li>Auto-increment primary keys</li>
-          </ul>
-        </div>
-
-        <div class="feature-card card-glow-green">
-          <div class="feature-icon icon-green">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-            </svg>
-          </div>
-          <h3>Clean Console UI</h3>
-          <p>Elegant ASCII box menus with emoji icons. Formatted table output using printf for products and cart.</p>
-          <ul class="feature-list">
-            <li>Box-drawing character menus</li>
-            <li>Formatted product tables</li>
-            <li>Error messages with emoji</li>
-          </ul>
-        </div>
-
-      </div>
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-tag">Product Catalog</div>
+    <h2 class="section-title">What the System Manages</h2>
+    <p class="section-sub">Sample products sellers add via the Java system. Click Add to Cart to try it!</p>
+    <div class="products-grid">
+      <div class="prod-card"><div class="prod-img" style="background:linear-gradient(135deg,#ecebff,#c4bffa)">&#x1F4F1;</div><div class="prod-info"><div class="prod-cat">Electronics</div><div class="prod-name">Smartphone Pro</div><div class="prod-row"><span class="prod-price">&#x20B9;12,999</span><span class="prod-stock">Stock: 45</span></div><button class="prod-btn" onclick="addToCart(this)">Add to Cart</button></div></div>
+      <div class="prod-card"><div class="prod-img" style="background:linear-gradient(135deg,#dce9fe,#93b4fc)">&#x1F4BB;</div><div class="prod-info"><div class="prod-cat">Computers</div><div class="prod-name">UltraBook Laptop</div><div class="prod-row"><span class="prod-price">&#x20B9;54,999</span><span class="prod-stock">Stock: 12</span></div><button class="prod-btn" onclick="addToCart(this)">Add to Cart</button></div></div>
+      <div class="prod-card"><div class="prod-img" style="background:linear-gradient(135deg,#d7f5e9,#7dd9b0)">&#x1F45F;</div><div class="prod-info"><div class="prod-cat">Footwear</div><div class="prod-name">Air Runner Shoes</div><div class="prod-row"><span class="prod-price">&#x20B9;2,499</span><span class="prod-stock">Stock: 120</span></div><button class="prod-btn" onclick="addToCart(this)">Add to Cart</button></div></div>
+      <div class="prod-card"><div class="prod-img" style="background:linear-gradient(135deg,#fde3cb,#f9a857)">&#x1F3A7;</div><div class="prod-info"><div class="prod-cat">Audio</div><div class="prod-name">Bass Earbuds</div><div class="prod-row"><span class="prod-price">&#x20B9;1,799</span><span class="prod-stock">Stock: 78</span></div><button class="prod-btn" onclick="addToCart(this)">Add to Cart</button></div></div>
+      <div class="prod-card"><div class="prod-img" style="background:linear-gradient(135deg,#ffe2dd,#f5939c)">&#x231A;</div><div class="prod-info"><div class="prod-cat">Wearables</div><div class="prod-name">Smart Watch</div><div class="prod-row"><span class="prod-price">&#x20B9;8,499</span><span class="prod-stock">Stock: 33</span></div><button class="prod-btn" onclick="addToCart(this)">Add to Cart</button></div></div>
+      <div class="prod-card"><div class="prod-img" style="background:linear-gradient(135deg,#fdf3d2,#f7d96b)">&#x1F4DA;</div><div class="prod-info"><div class="prod-cat">Education</div><div class="prod-name">Java Programming</div><div class="prod-row"><span class="prod-price">&#x20B9;599</span><span class="prod-stock">Stock: 200</span></div><button class="prod-btn" onclick="addToCart(this)">Add to Cart</button></div></div>
     </div>
-  </section>
+    <div class="cart-toast" id="cartToast"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Added to cart!</div>
+  </div>
+</section>
 
-  <!-- ====== ARCHITECTURE ====== -->
-  <section class="section section-alt" id="architecture">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-tag">Architecture</div>
-        <h2 class="section-title">How it all connects</h2>
-        <p class="section-subtitle">A straightforward layered architecture — console interface, logic layer, and database.</p>
-      </div>
-      <div class="arch-diagram">
-        <div class="arch-layer">
-          <div class="arch-node node-ui">
-            <div class="node-icon">&#x1F5A5;&#xFE0F;</div>
-            <div class="node-label">Console UI</div>
-            <div class="node-desc">printMainMenu()<br/>userMenu()<br/>sellerMenu()</div>
-          </div>
-        </div>
-        <div class="arch-arrow">&#x2193;</div>
-        <div class="arch-layer arch-layer-wide">
-          <div class="arch-node node-logic">
-            <div class="node-icon">&#x1F464;</div>
-            <div class="node-label">User Logic</div>
-            <div class="node-desc">registerUser<br/>userLogin<br/>viewProducts</div>
-          </div>
-          <div class="arch-node node-logic">
-            <div class="node-icon">&#x1F3EA;</div>
-            <div class="node-label">Seller Logic</div>
-            <div class="node-desc">registerSeller<br/>sellerLogin<br/>addProduct</div>
-          </div>
-          <div class="arch-node node-logic">
-            <div class="node-icon">&#x1F6D2;</div>
-            <div class="node-label">Cart Logic</div>
-            <div class="node-desc">addToCart<br/>viewCart<br/>placeOrder</div>
-          </div>
-        </div>
-        <div class="arch-arrow">&#x2193;</div>
-        <div class="arch-layer">
-          <div class="arch-node node-jdbc">
-            <div class="node-icon">&#x26A1;</div>
-            <div class="node-label">JDBC Layer</div>
-            <div class="node-desc">PreparedStatement<br/>ResultSet<br/>Connection</div>
-          </div>
-        </div>
-        <div class="arch-arrow">&#x2193;</div>
-        <div class="arch-layer arch-layer-wide">
-          <div class="arch-node node-db">
-            <div class="node-icon">&#x1F5C3;&#xFE0F;</div>
-            <div class="node-label">users</div>
-            <div class="node-desc">user_id, name<br/>email, password<br/>last_login</div>
-          </div>
-          <div class="arch-node node-db">
-            <div class="node-icon">&#x1F5C3;&#xFE0F;</div>
-            <div class="node-label">sellers</div>
-            <div class="node-desc">seller_id<br/>user_id (FK)<br/>shop_name</div>
-          </div>
-          <div class="arch-node node-db">
-            <div class="node-icon">&#x1F5C3;&#xFE0F;</div>
-            <div class="node-label">products</div>
-            <div class="node-desc">product_id<br/>price, stock<br/>seller_id (FK)</div>
-          </div>
-          <div class="arch-node node-db">
-            <div class="node-icon">&#x1F5C3;&#xFE0F;</div>
-            <div class="node-label">cart</div>
-            <div class="node-desc">cart_id<br/>user_id (FK)<br/>product_id, qty</div>
-          </div>
-        </div>
-      </div>
+<section class="section section-light" id="schema">
+  <div class="container">
+    <div class="section-tag">Database</div>
+    <h2 class="section-title">MySQL Schema</h2>
+    <p class="section-sub">Four normalized tables. Click Copy to grab the SQL.</p>
+    <div class="schema-grid">
+      <div class="schema-card"><div class="schema-head"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>users<button class="copy-schema" data-id="sql-users">Copy</button></div><pre class="schema-pre" id="sql-users"><code><span class="kw">CREATE TABLE</span> users (
+  user_id    <span class="ty">INT</span> <span class="kw">AUTO_INCREMENT PRIMARY KEY</span>,
+  name       <span class="ty">VARCHAR</span>(<span class="nm">100</span>),
+  email      <span class="ty">VARCHAR</span>(<span class="nm">100</span>) <span class="kw">UNIQUE</span>,
+  password   <span class="ty">VARCHAR</span>(<span class="nm">100</span>),
+  last_login <span class="ty">TIMESTAMP</span>
+);</code></pre></div>
+      <div class="schema-card"><div class="schema-head"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>sellers<button class="copy-schema" data-id="sql-sellers">Copy</button></div><pre class="schema-pre" id="sql-sellers"><code><span class="kw">CREATE TABLE</span> sellers (
+  seller_id <span class="ty">INT</span> <span class="kw">AUTO_INCREMENT PRIMARY KEY</span>,
+  user_id   <span class="ty">INT</span>,
+  shop_name <span class="ty">VARCHAR</span>(<span class="nm">100</span>),
+  <span class="kw">FOREIGN KEY</span> (user_id)
+    <span class="kw">REFERENCES</span> users(user_id)
+);</code></pre></div>
+      <div class="schema-card"><div class="schema-head"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>products<button class="copy-schema" data-id="sql-products">Copy</button></div><pre class="schema-pre" id="sql-products"><code><span class="kw">CREATE TABLE</span> products (
+  product_id       <span class="ty">INT</span> <span class="kw">AUTO_INCREMENT PRIMARY KEY</span>,
+  seller_id        <span class="ty">INT</span>,
+  product_name     <span class="ty">VARCHAR</span>(<span class="nm">100</span>),
+  product_category <span class="ty">VARCHAR</span>(<span class="nm">50</span>),
+  price            <span class="ty">DECIMAL</span>(<span class="nm">10</span>,<span class="nm">2</span>),
+  stock_quantity   <span class="ty">INT</span>
+);</code></pre></div>
+      <div class="schema-card"><div class="schema-head"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>cart<button class="copy-schema" data-id="sql-cart">Copy</button></div><pre class="schema-pre" id="sql-cart"><code><span class="kw">CREATE TABLE</span> cart (
+  cart_id    <span class="ty">INT</span> <span class="kw">AUTO_INCREMENT PRIMARY KEY</span>,
+  user_id    <span class="ty">INT</span>,
+  product_id <span class="ty">INT</span>,
+  quantity   <span class="ty">INT</span>,
+  <span class="kw">FOREIGN KEY</span> (user_id)
+    <span class="kw">REFERENCES</span> users(user_id)
+);</code></pre></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ====== CODE VIEWER ====== -->
-  <section class="section" id="code">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-tag">Source Code</div>
-        <h2 class="section-title">EcommerceSystem.java</h2>
-        <p class="section-subtitle">Explore the full source code of the system across its key modules.</p>
-      </div>
-      <div class="code-tabs">
-        <button class="tab-btn active" data-tab="main" id="tab-btn-main">Main</button>
-        <button class="tab-btn" data-tab="user" id="tab-btn-user">User</button>
-        <button class="tab-btn" data-tab="seller" id="tab-btn-seller">Seller</button>
-        <button class="tab-btn" data-tab="cart" id="tab-btn-cart">Cart</button>
-        <button class="tab-btn" data-tab="order" id="tab-btn-order">Order</button>
-      </div>
-      <div class="code-panels">
-
-        <div class="code-panel active" id="tab-main">
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">Java</span>
-              <button class="copy-btn" id="copy-main">Copy</button>
-            </div>
-            <pre><code id="code-main"><span class="c-keyword">public static void</span> <span class="c-fn">main</span>(<span class="c-type">String</span>[] args) {
-    <span class="c-keyword">try</span> {
-        Class.<span class="c-fn">forName</span>(<span class="c-str">"com.mysql.cj.jdbc.Driver"</span>);
-    } <span class="c-keyword">catch</span> (<span class="c-type">Exception</span> e) {
-        System.out.<span class="c-fn">println</span>(<span class="c-str">"Driver Error!"</span>);
-    }
-    <span class="c-keyword">while</span> (<span class="c-bool">true</span>) {
-        <span class="c-keyword">try</span> {
-            <span class="c-fn">printMainMenu</span>();
-            <span class="c-type">int</span> choice = <span class="c-type">Integer</span>.<span class="c-fn">parseInt</span>(sc.<span class="c-fn">nextLine</span>());
-            <span class="c-keyword">switch</span> (choice) {
-                <span class="c-keyword">case</span> <span class="c-num">1</span> -&gt; <span class="c-fn">userLogin</span>();
-                <span class="c-keyword">case</span> <span class="c-num">2</span> -&gt; <span class="c-fn">sellerLogin</span>();
-                <span class="c-keyword">case</span> <span class="c-num">3</span> -&gt; <span class="c-fn">registerUser</span>();
-                <span class="c-keyword">case</span> <span class="c-num">4</span> -&gt; <span class="c-fn">registerSeller</span>();
-                <span class="c-keyword">case</span> <span class="c-num">5</span> -&gt; { System.out.<span class="c-fn">println</span>(<span class="c-str">"&#x1F44B; Exiting..."</span>); <span class="c-keyword">return</span>; }
-                <span class="c-keyword">default</span> -&gt; System.out.<span class="c-fn">println</span>(<span class="c-str">"&#x274C; Invalid choice!"</span>);
-            }
-        } <span class="c-keyword">catch</span> (<span class="c-type">Exception</span> e) {
-            System.out.<span class="c-fn">println</span>(<span class="c-str">"&#x274C; Invalid input!"</span>);
-        }
-    }
-}</code></pre>
-          </div>
-        </div>
-
-        <div class="code-panel" id="tab-user">
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">Java</span>
-              <button class="copy-btn" id="copy-user">Copy</button>
-            </div>
-            <pre><code id="code-user"><span class="c-keyword">static void</span> <span class="c-fn">userLogin</span>() {
-    <span class="c-keyword">try</span> (<span class="c-type">Connection</span> conn = <span class="c-type">DriverManager</span>.<span class="c-fn">getConnection</span>(URL, USER, PASS)) {
-        System.out.<span class="c-fn">print</span>(<span class="c-str">"Email: "</span>);
-        <span class="c-type">String</span> email = sc.<span class="c-fn">nextLine</span>();
-        System.out.<span class="c-fn">print</span>(<span class="c-str">"Password: "</span>);
-        <span class="c-type">String</span> pass = sc.<span class="c-fn">nextLine</span>();
-
-        <span class="c-type">String</span> sql = <span class="c-str">"SELECT * FROM users WHERE email=? AND password=?"</span>;
-        <span class="c-type">PreparedStatement</span> ps = conn.<span class="c-fn">prepareStatement</span>(sql);
-        ps.<span class="c-fn">setString</span>(<span class="c-num">1</span>, email);
-        ps.<span class="c-fn">setString</span>(<span class="c-num">2</span>, pass);
-
-        <span class="c-type">ResultSet</span> rs = ps.<span class="c-fn">executeQuery</span>();
-        <span class="c-keyword">if</span> (rs.<span class="c-fn">next</span>()) {
-            <span class="c-type">int</span> userId = rs.<span class="c-fn">getInt</span>(<span class="c-str">"user_id"</span>);
-            <span class="c-fn">updateLastLogin</span>(userId);
-            System.out.<span class="c-fn">println</span>(<span class="c-str">"&#x2714; Welcome "</span> + rs.<span class="c-fn">getString</span>(<span class="c-str">"name"</span>));
-            <span class="c-fn">userMenu</span>(userId);
-        } <span class="c-keyword">else</span> {
-            System.out.<span class="c-fn">println</span>(<span class="c-str">"&#x274C; Invalid login!"</span>);
-        }
-    } <span class="c-keyword">catch</span> (<span class="c-type">Exception</span> e) {
-        System.out.<span class="c-fn">println</span>(<span class="c-str">"&#x274C; "</span> + e.<span class="c-fn">getMessage</span>());
-    }
-}</code></pre>
-          </div>
-        </div>
-
-        <div class="code-panel" id="tab-seller">
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">Java</span>
-              <button class="copy-btn" id="copy-seller">Copy</button>
-            </div>
-            <pre><code id="code-seller"><span class="c-keyword">static void</span> <span class="c-fn">addProduct</span>(<span class="c-type">int</span> sellerId) {
-    <span class="c-keyword">try</span> (<span class="c-type">Connection</span> conn = <span class="c-type">DriverManager</span>.<span class="c-fn">getConnection</span>(URL, USER, PASS)) {
-        System.out.<span class="c-fn">print</span>(<span class="c-str">"Name: "</span>);
-        <span class="c-type">String</span> name  = sc.<span class="c-fn">nextLine</span>();
-        System.out.<span class="c-fn">print</span>(<span class="c-str">"Category: "</span>);
-        <span class="c-type">String</span> cat   = sc.<span class="c-fn">nextLine</span>();
-        System.out.<span class="c-fn">print</span>(<span class="c-str">"Price: "</span>);
-        <span class="c-type">double</span> price = <span class="c-type">Double</span>.<span class="c-fn">parseDouble</span>(sc.<span class="c-fn">nextLine</span>());
-        System.out.<span class="c-fn">print</span>(<span class="c-str">"Stock: "</span>);
-        <span class="c-type">int</span> stock    = <span class="c-type">Integer</span>.<span class="c-fn">parseInt</span>(sc.<span class="c-fn">nextLine</span>());
-
-        <span class="c-type">PreparedStatement</span> ps = conn.<span class="c-fn">prepareStatement</span>(
-            <span class="c-str">"INSERT INTO products(seller_id, product_name, "</span> +
-            <span class="c-str">"product_category, price, stock_quantity) VALUES (?,?,?,?,?)"</span>);
-        ps.<span class="c-fn">setInt</span>(<span class="c-num">1</span>, sellerId);
-        ps.<span class="c-fn">setString</span>(<span class="c-num">2</span>, name);
-        ps.<span class="c-fn">setString</span>(<span class="c-num">3</span>, cat);
-        ps.<span class="c-fn">setDouble</span>(<span class="c-num">4</span>, price);
-        ps.<span class="c-fn">setInt</span>(<span class="c-num">5</span>, stock);
-        ps.<span class="c-fn">executeUpdate</span>();
-        System.out.<span class="c-fn">println</span>(<span class="c-str">"&#x2714; Product Added!"</span>);
-    } <span class="c-keyword">catch</span> (<span class="c-type">Exception</span> e) {
-        System.out.<span class="c-fn">println</span>(<span class="c-str">"&#x274C; "</span> + e.<span class="c-fn">getMessage</span>());
-    }
-}</code></pre>
-          </div>
-        </div>
-
-        <div class="code-panel" id="tab-cart">
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">Java</span>
-              <button class="copy-btn" id="copy-cart">Copy</button>
-            </div>
-            <pre><code id="code-cart"><span class="c-keyword">static void</span> <span class="c-fn">viewCart</span>(<span class="c-type">int</span> userId) {
-    <span class="c-keyword">try</span> (<span class="c-type">Connection</span> conn = <span class="c-type">DriverManager</span>.<span class="c-fn">getConnection</span>(URL, USER, PASS)) {
-        <span class="c-type">String</span> sql = <span class="c-str">"SELECT p.product_name, p.price, c.quantity "</span>
-                   + <span class="c-str">"FROM cart c JOIN products p ON c.product_id = p.product_id "</span>
-                   + <span class="c-str">"WHERE c.user_id=?"</span>;
-
-        <span class="c-type">PreparedStatement</span> ps = conn.<span class="c-fn">prepareStatement</span>(sql);
-        ps.<span class="c-fn">setInt</span>(<span class="c-num">1</span>, userId);
-        <span class="c-type">ResultSet</span> rs = ps.<span class="c-fn">executeQuery</span>();
-
-        <span class="c-type">double</span> total = <span class="c-num">0</span>;
-        System.out.<span class="c-fn">println</span>(<span class="c-str">"&#x1F6D2; YOUR CART"</span>);
-        System.out.<span class="c-fn">printf</span>(<span class="c-str">"%-15s %-10s %-10s %-10s\n"</span>,
-            <span class="c-str">"Product"</span>, <span class="c-str">"Price"</span>, <span class="c-str">"Qty"</span>, <span class="c-str">"Total"</span>);
-
-        <span class="c-keyword">while</span> (rs.<span class="c-fn">next</span>()) {
-            <span class="c-type">double</span> price = rs.<span class="c-fn">getDouble</span>(<span class="c-str">"price"</span>);
-            <span class="c-type">int</span>    qty   = rs.<span class="c-fn">getInt</span>(<span class="c-str">"quantity"</span>);
-            <span class="c-type">double</span> sub   = price * qty;
-            total += sub;
-            System.out.<span class="c-fn">printf</span>(<span class="c-str">"%-15s &#x20B9;%-9.2f %-10d &#x20B9;%-10.2f\n"</span>,
-                rs.<span class="c-fn">getString</span>(<span class="c-str">"product_name"</span>), price, qty, sub);
-        }
-        System.out.<span class="c-fn">println</span>(<span class="c-str">"Total Amount: &#x20B9;"</span> + total);
-    } <span class="c-keyword">catch</span> (<span class="c-type">Exception</span> e) {
-        System.out.<span class="c-fn">println</span>(<span class="c-str">"&#x274C; "</span> + e.<span class="c-fn">getMessage</span>());
-    }
-}</code></pre>
-          </div>
-        </div>
-
-        <div class="code-panel" id="tab-order">
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">Java</span>
-              <button class="copy-btn" id="copy-order">Copy</button>
-            </div>
-            <pre><code id="code-order"><span class="c-keyword">static void</span> <span class="c-fn">placeOrder</span>(<span class="c-type">int</span> userId) {
-    <span class="c-keyword">try</span> (<span class="c-type">Connection</span> conn = <span class="c-type">DriverManager</span>.<span class="c-fn">getConnection</span>(URL, USER, PASS)) {
-        <span class="c-type">PreparedStatement</span> ps = conn.<span class="c-fn">prepareStatement</span>(
-            <span class="c-str">"SELECT product_id, quantity FROM cart WHERE user_id=?"</span>);
-        ps.<span class="c-fn">setInt</span>(<span class="c-num">1</span>, userId);
-        <span class="c-type">ResultSet</span> rs = ps.<span class="c-fn">executeQuery</span>();
-        <span class="c-type">double</span> total = <span class="c-num">0</span>;
-
-        <span class="c-keyword">while</span> (rs.<span class="c-fn">next</span>()) {
-            <span class="c-type">int</span> pid = rs.<span class="c-fn">getInt</span>(<span class="c-str">"product_id"</span>);
-            <span class="c-type">int</span> qty = rs.<span class="c-fn">getInt</span>(<span class="c-str">"quantity"</span>);
-
-            <span class="c-type">PreparedStatement</span> ps2 = conn.<span class="c-fn">prepareStatement</span>(
-                <span class="c-str">"SELECT price, stock_quantity FROM products WHERE product_id=?"</span>);
-            ps2.<span class="c-fn">setInt</span>(<span class="c-num">1</span>, pid);
-            <span class="c-type">ResultSet</span> rs2 = ps2.<span class="c-fn">executeQuery</span>();
-
-            <span class="c-keyword">if</span> (rs2.<span class="c-fn">next</span>()) {
-                <span class="c-keyword">if</span> (rs2.<span class="c-fn">getInt</span>(<span class="c-str">"stock_quantity"</span>) &lt; qty) {
-                    System.out.<span class="c-fn">println</span>(<span class="c-str">"&#x274C; Not enough stock!"</span>);
-                    <span class="c-keyword">return</span>;
-                }
-                total += rs2.<span class="c-fn">getDouble</span>(<span class="c-str">"price"</span>) * qty;
-                <span class="c-type">PreparedStatement</span> ps3 = conn.<span class="c-fn">prepareStatement</span>(
-                    <span class="c-str">"UPDATE products SET stock_quantity = stock_quantity - ? WHERE product_id=?"</span>);
-                ps3.<span class="c-fn">setInt</span>(<span class="c-num">1</span>, qty); ps3.<span class="c-fn">setInt</span>(<span class="c-num">2</span>, pid);
-                ps3.<span class="c-fn">executeUpdate</span>();
-            }
-        }
-        System.out.<span class="c-fn">println</span>(<span class="c-str">"&#x1F389; Order placed! Total &#x20B9;"</span> + total);
-        conn.<span class="c-fn">createStatement</span>().<span class="c-fn">executeUpdate</span>(
-            <span class="c-str">"DELETE FROM cart WHERE user_id="</span> + userId);
-    } <span class="c-keyword">catch</span> (<span class="c-type">Exception</span> e) {
-        System.out.<span class="c-fn">println</span>(<span class="c-str">"&#x274C; "</span> + e.<span class="c-fn">getMessage</span>());
-    }
-}</code></pre>
-          </div>
-        </div>
-
-      </div>
+<section class="section" id="setup">
+  <div class="container">
+    <div class="section-tag">Quick Start</div>
+    <h2 class="section-title">Run in 3 steps</h2>
+    <div class="steps-list">
+      <div class="step-item"><div class="step-n">1</div><div class="step-body"><h3>Create the database</h3><p>Create <code>ecommerce1</code> in MySQL and run all four schema statements above.</p><div class="cmd-box">mysql -u root -p -e "CREATE DATABASE ecommerce1;"</div></div></div>
+      <div class="step-item"><div class="step-n">2</div><div class="step-body"><h3>Compile with JDBC driver</h3><p>Add <code>mysql-connector-j.jar</code> to classpath when compiling.</p><div class="cmd-box">javac -cp mysql-connector-j.jar EcommerceSystem.java</div></div></div>
+      <div class="step-item"><div class="step-n">3</div><div class="step-body"><h3>Run the system</h3><p>Execute with the jar on classpath. The interactive menu launches immediately.</p><div class="cmd-box">java -cp .;mysql-connector-j.jar DBMS.EcommerceSystem</div></div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ====== DATABASE SCHEMA ====== -->
-  <section class="section section-alt" id="schema">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-tag">Database</div>
-        <h2 class="section-title">MySQL Schema</h2>
-        <p class="section-subtitle">Four normalized tables powering the entire system. Run these to get started.</p>
-      </div>
-      <div class="schema-grid">
-        <div class="schema-card">
-          <div class="schema-header">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-            </svg>
-            <span>users</span>
-          </div>
-          <pre class="schema-sql"><code><span class="c-keyword">CREATE TABLE</span> users (
-  user_id    <span class="c-type">INT</span> AUTO_INCREMENT
-             <span class="c-keyword">PRIMARY KEY</span>,
-  name       <span class="c-type">VARCHAR</span>(<span class="c-num">100</span>),
-  email      <span class="c-type">VARCHAR</span>(<span class="c-num">100</span>) UNIQUE,
-  password   <span class="c-type">VARCHAR</span>(<span class="c-num">100</span>),
-  last_login <span class="c-type">TIMESTAMP</span>
-);</code></pre>
-        </div>
-        <div class="schema-card">
-          <div class="schema-header">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-            </svg>
-            <span>sellers</span>
-          </div>
-          <pre class="schema-sql"><code><span class="c-keyword">CREATE TABLE</span> sellers (
-  seller_id <span class="c-type">INT</span> AUTO_INCREMENT
-            <span class="c-keyword">PRIMARY KEY</span>,
-  user_id   <span class="c-type">INT</span>,
-  shop_name <span class="c-type">VARCHAR</span>(<span class="c-num">100</span>),
-  <span class="c-keyword">FOREIGN KEY</span> (user_id)
-    <span class="c-keyword">REFERENCES</span> users(user_id)
-);</code></pre>
-        </div>
-        <div class="schema-card">
-          <div class="schema-header">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-            </svg>
-            <span>products</span>
-          </div>
-          <pre class="schema-sql"><code><span class="c-keyword">CREATE TABLE</span> products (
-  product_id       <span class="c-type">INT</span> AUTO_INCREMENT
-                   <span class="c-keyword">PRIMARY KEY</span>,
-  seller_id        <span class="c-type">INT</span>,
-  product_name     <span class="c-type">VARCHAR</span>(<span class="c-num">100</span>),
-  product_category <span class="c-type">VARCHAR</span>(<span class="c-num">50</span>),
-  price            <span class="c-type">DECIMAL</span>(<span class="c-num">10</span>,<span class="c-num">2</span>),
-  stock_quantity   <span class="c-type">INT</span>
-);</code></pre>
-        </div>
-        <div class="schema-card">
-          <div class="schema-header">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-            </svg>
-            <span>cart</span>
-          </div>
-          <pre class="schema-sql"><code><span class="c-keyword">CREATE TABLE</span> cart (
-  cart_id    <span class="c-type">INT</span> AUTO_INCREMENT
-             <span class="c-keyword">PRIMARY KEY</span>,
-  user_id    <span class="c-type">INT</span>,
-  product_id <span class="c-type">INT</span>,
-  quantity   <span class="c-type">INT</span>,
-  <span class="c-keyword">FOREIGN KEY</span> (user_id)
-    <span class="c-keyword">REFERENCES</span> users(user_id)
-);</code></pre>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== SETUP GUIDE ====== -->
-  <section class="section" id="setup">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-tag">Getting Started</div>
-        <h2 class="section-title">Run it locally in 3 steps</h2>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">01</div>
-          <div class="step-content">
-            <h3>Setup MySQL Database</h3>
-            <p>Create the <code>ecommerce1</code> database and run the four CREATE TABLE statements above.</p>
-            <div class="inline-code">mysql -u root -p -e "CREATE DATABASE ecommerce1;"</div>
-          </div>
-        </div>
-        <div class="step-connector"></div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <div class="step-content">
-            <h3>Add the JDBC Driver</h3>
-            <p>Place <code>mysql-connector-j-*.jar</code> on your classpath. Download from <a href="https://dev.mysql.com/downloads/connector/j/" target="_blank" class="link">MySQL Downloads</a>.</p>
-            <div class="inline-code">javac -cp mysql-connector-j.jar EcommerceSystem.java</div>
-          </div>
-        </div>
-        <div class="step-connector"></div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <div class="step-content">
-            <h3>Run the System</h3>
-            <p>Execute with the driver on classpath. The interactive console menu will launch immediately.</p>
-            <div class="inline-code">java -cp .;mysql-connector-j.jar DBMS.EcommerceSystem</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== FOOTER ====== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <div class="brand-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke-linejoin="round"/>
-              <line x1="3" y1="6" x2="21" y2="6"/>
-              <path d="M16 10a4 4 0 01-8 0" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <span>ShopFlash</span>
-        </div>
-        <p class="footer-copy">Built with Java &middot; JDBC &middot; MySQL &middot; &#x2615;</p>
-        <p class="footer-copy" style="opacity:0.4; font-size:0.75rem;">EcommerceSystem.java &mdash; DBMS Package</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand"><div class="brand-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.97-1.67l1.38-7.33H6"/></svg></div><span><strong>ShopFlash</strong> &mdash; Java E-Commerce System</span></div>
+    <div class="footer-links"><a href="https://github.com/lok1-10/shopflash-ecommerce" target="_blank" rel="noopener">GitHub</a><a href="#demo">Live Demo</a><a href="#schema">Database</a></div>
+    <p class="footer-copy">Built with Java &bull; JDBC &bull; MySQL &bull; &#x2615;</p>
+  </div>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>
