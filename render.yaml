@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: shopflash-ecommerce
+    runtime: static
+    staticPublishPath: .
+    branch: main
+    buildCommand: ""
